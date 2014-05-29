@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable cssedit-groups': 'cssedit-groups:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'CSS Edit Groups'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'cssedit-groups:toggle' }
+      ]
+    ]
+  }
+]
