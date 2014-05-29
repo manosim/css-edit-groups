@@ -1,15 +1,16 @@
 {
   "name": "cssedit-groups",
   "main": "./lib/cssedit-groups",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Jump to CSS @group markers like CSSEdit. A port of https://github.com/Kotrotsos/sublime-cssedit-groups",
-  "activationEvents": ["cssedit-groups:toggle"],
+  "activationEvents": [
+    "cssedit-groups:toggle"
+  ],
   "repository": "https://github.com/davidrapson/cssedit-groups",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
