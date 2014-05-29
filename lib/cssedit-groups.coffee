@@ -4,4 +4,4 @@ module.exports =
   csseditGroupsView: null
 
   activate: (state) ->
-    @csseditGroupsView = new CssEditGroupsView()
+    @csseditGroupsView = new CsseditGroupsView()
