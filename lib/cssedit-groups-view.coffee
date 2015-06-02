@@ -12,7 +12,7 @@ class CsseditGroupsView extends SelectListView
 
 
     attach: ->
-        editor = atom.workspaceView.getActivePaneItem()
+        editor = atom.workspace.getActivePaneItem()
         if editor
             editorBuffer = editor.buffer
             if editorBuffer
@@ -36,7 +36,7 @@ class CsseditGroupsView extends SelectListView
 
 
     confirmed: (item) ->
-        editor = atom.workspaceView.getActivePaneItem()
+        editor = atom.workspace.getActivePaneItem()
         ebuffer = editor.buffer
         if item != "No Tasks Found"
             itemIndex = ebuffer.cachedText.indexOf( item )
