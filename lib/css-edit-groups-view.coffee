@@ -7,7 +7,7 @@ class CsseditGroupsView extends SelectListView
     initialize: (serializeState) ->
         super
         @addClass('overlay from-top task-list')
-        atom.commands.add 'atom-workspace', 'cssedit-groups:toggle', => @toggle()
+        atom.commands.add 'atom-workspace', 'css-edit-groups:toggle', => @toggle()
 
     cancelled: ->
         @hide()

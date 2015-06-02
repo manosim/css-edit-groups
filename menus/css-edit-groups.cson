@@ -1,0 +1,21 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'atom-workspace': [
+  {
+    'label': 'Enable cssedit-groups',
+    'command': 'css-edit-groups:toggle'
+  }
+]
+'atom-text-editor': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'CSS Edit Groups',
+      'submenu': [
+        {
+          'label': 'CSS Edit Groups',
+          'command':'css-edit-groups:toggle'
+        }
+      ]
+    ]
+  }
+]

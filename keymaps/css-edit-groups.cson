@@ -7,5 +7,6 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'atom-workspace':
-  'shift-cmd-K': 'cssedit-groups:toggle'
+'atom-text-editor':
+  'cmd-l': 'unset!'
+  'cmd-l': 'css-edit-groups:toggle'

@@ -1,4 +1,4 @@
-CsseditGroupsView = require './cssedit-groups-view'
+CsseditGroupsView = require './css-edit-groups-view'
 
 module.exports =
   csseditGroupsView: null

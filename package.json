@@ -1,27 +1,44 @@
 {
-  "name": "cssedit-groups",
-  "main": "./lib/cssedit-groups",
-  "version": "0.3.0",
-  "private": true,
-  "description": "Jump to CSS @group markers like CSSEdit. A port of https://github.com/Kotrotsos/sublime-cssedit-groups",
+  "name": "css-edit-groups",
+  "main": "./lib/css-edit-groups",
+  "version": "0.4.0",
+  "description": "Jump to CSS @group markers like CSSEdit.",
+  "keywords": [
+    "atom",
+    "css",
+    "edit",
+    "group",
+    "css-edit-group",
+    "cssedit-group",
+    "package"
+  ],
   "activationCommands": {
-    "atom-workspace": ["cssedit-groups:toggle"]
+    "atom-workspace": "css-edit-groups:toggle"
   },
+  "author": "Emmanouil Konstantinidis",
+  "contributors": [
+      {
+          "name": "Emmanouil Konstantinidis",
+          "url": "https://githib.com/ekonstantinidis"
+      },
+      {
+          "name": "David Rapson",
+          "url": "https://github.com/davidrapson"
+      }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidrapson/cssedit-groups"
+    "url": "https://github.com/ekonstantinidis/css-edit-groups"
   },
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.3"
   },
-  "readme": "# cssedit-groups\n\nAn Atom editor package to jump to CSS `@group` markers like CSSEdit. A port of [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n\nWhenever you are inside a CSS file that contains CSS Edit's group information (like `/* @group Headings */` ) press `cmd-shift-K` and you will be presented with a navigation list to jump around within the CSS file.\n\n## Credits\n\n- [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n",
-  "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/davidrapson/cssedit-groups/issues"
+    "url": "https://github.com/ekonstantinidis/css-edit-groups/issues"
   },
-  "homepage": "https://github.com/davidrapson/cssedit-groups",
+  "homepage": "https://github.com/ekonstantinidis/css-edit-groups"
 }
