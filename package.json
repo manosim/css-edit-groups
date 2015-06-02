@@ -1,7 +1,7 @@
 {
   "name": "css-edit-groups",
   "main": "./lib/css-edit-groups",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Jump to CSS @group markers like CSSEdit.",
   "keywords": [
     "atom",
@@ -17,14 +17,14 @@
   },
   "author": "Emmanouil Konstantinidis",
   "contributors": [
-      {
-          "name": "Emmanouil Konstantinidis",
-          "url": "https://githib.com/ekonstantinidis"
-      },
-      {
-          "name": "David Rapson",
-          "url": "https://github.com/davidrapson"
-      }
+    {
+      "name": "Emmanouil Konstantinidis",
+      "url": "https://githib.com/ekonstantinidis"
+    },
+    {
+      "name": "David Rapson",
+      "url": "https://github.com/davidrapson"
+    }
   ],
   "repository": {
     "type": "git",
