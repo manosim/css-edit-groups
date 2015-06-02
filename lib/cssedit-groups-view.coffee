@@ -7,26 +7,43 @@ class CsseditGroupsView extends SelectListView
     initialize: (serializeState) ->
         super
         @addClass('overlay from-top task-list')
-        return atom.workspaceView.command 'cssedit-groups:toggle', =>
-            return @.toggle()
+        atom.commands.add 'atom-workspace', 'cssedit-groups:toggle', => @.toggle()
 
 
-    attach: ->
-        editor = atom.workspace.getActivePaneItem()
+    hide: ->
+        @panel?.hide()
+
+
+    # You need to implement the `cancelled` method and hide.
+    cancelled: ->
+        @hide()
+
+
+    confirmed: ({name, jQuery}) ->
+        @cancel()
+        # do something with the result
+
+
+    show: ->
+        editor = atom.workspace.getActiveTextEditor()
         if editor
             editorBuffer = editor.buffer
-            if editorBuffer
-                matcher = /@group.*(?=\*)/g
-                groups = []
-                if editorBuffer.cachedText and editorBuffer.cachedText.match(matcher)
-                    for match in editorBuffer.cachedText.match(matcher)
-                        groups.push( match )
-                    @setItems(groups)
-                else
-                    @setItems([ 'No groups found' ])
+            # Now you will add your select list as a modal panel to the workspace
+            @panel ?= atom.workspace.addModalPanel(item: this)
+            @panel.show()
 
-                atom.workspaceView.append(this)
-                @focusFilterEditor()
+            @storeFocusedElement()
+
+            matcher = /@group.*(?=\*)/g
+            groups = [] # TODO: build items
+            if editorBuffer.cachedText and editorBuffer.cachedText.match(matcher)
+                for match in editorBuffer.cachedText.match(matcher)
+                    groups.push( match )
+                @setItems(groups)
+            else
+                @setItems([ 'No groups found' ])
+
+            @focusFilterEditor()
 
 
     viewForItem: (item) ->
@@ -42,11 +59,13 @@ class CsseditGroupsView extends SelectListView
             itemIndex = ebuffer.cachedText.indexOf( item )
             bufferP = ebuffer.positionForCharacterIndex( itemIndex )
             editor.setCursorBufferPosition( bufferP )
-        this.cancel()
+        @cancel()
 
 
     toggle: ->
-        if @.hasParent()
-            @.cancel()
-        else
-            @.attach()
+      # Toggling now checks panel visibility,
+      # and hides / shows rather than attaching to / detaching from the DOM.
+      if @panel?.isVisible()
+        @cancel()
+      else
+        @show()
