@@ -1,62 +1,52 @@
-CssEditGroups = require '../lib/css-edit-groups'
+{$, $$, SelectListView} = require 'atom-space-pen-views'
 
-# Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-#
-# To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-# or `fdescribe`). Remove the `f` to unfocus the block.
-
-describe "CssEditGroups", ->
-  [workspaceElement, activationPromise] = []
+describe "CSS Edit Groups", ->
+  [selectList, items, list, filterEditorView] = []
 
   beforeEach ->
-    workspaceElement = atom.views.getView(atom.workspace)
-    activationPromise = atom.packages.activatePackage('css-edit-groups')
+    items = [
+      ["A", "Alpha"], ["B", "Bravo"], ["C", "Charlie"],
+      ["D", "Delta"], ["E", "Echo"], ["F", "Foxtrot"]
+    ]
 
-  describe "when the css-edit-groups:toggle event is triggered", ->
-    it "hides and shows the modal panel", ->
-      # Before the activation event the view is not on the DOM, and no panel
-      # has been created
-      expect(workspaceElement.querySelector('.css-edit-groups')).not.toExist()
+    selectList = new SelectListView
+    selectList.setMaxItems(4)
+    selectList.getFilterKey = -> 1
+    selectList.viewForItem = (item) ->
+      $$ -> @li item[1], class: item[0]
 
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'css-edit-groups:toggle'
+    selectList.confirmed = jasmine.createSpy('confirmed hook')
+    selectList.cancelled = jasmine.createSpy('cancelled hook')
 
-      waitsForPromise ->
-        activationPromise
+    selectList.setItems(items)
+    {list, filterEditorView} = selectList
 
-      runs ->
-        expect(workspaceElement.querySelector('.css-edit-groups')).toExist()
+  describe "when an array is assigned", ->
+    it "populates the list with up to maxItems items, based on the liForElement function", ->
+      expect(list.find('li').length).toBe selectList.maxItems
+      expect(list.find('li:eq(0)')).toHaveText 'Alpha'
+      expect(list.find('li:eq(0)')).toHaveClass 'A'
 
-        cssEditGroupsElement = workspaceElement.querySelector('.css-edit-groups')
-        expect(cssEditGroupsElement).toExist()
+  describe "viewForItem(item)", ->
+    it "allows raw DOM elements to be returned", ->
+      selectList.viewForItem = (item) ->
+        li = document.createElement('li')
+        li.classList.add(item[0])
+        li.innerText = item[1]
+        li
 
-        cssEditGroupsPanel = atom.workspace.panelForItem(cssEditGroupsElement)
-        expect(cssEditGroupsPanel.isVisible()).toBe true
-        atom.commands.dispatch workspaceElement, 'css-edit-groups:toggle'
-        expect(cssEditGroupsPanel.isVisible()).toBe false
+      selectList.setItems(items)
 
-    it "hides and shows the view", ->
-      # This test shows you an integration test testing at the view level.
+      expect(list.find('li').length).toBe selectList.maxItems
+      expect(list.find('li:eq(0)')).toHaveText 'Alpha'
+      expect(list.find('li:eq(0)')).toHaveClass 'A'
+      expect(selectList.getSelectedItem()).toBe items[0]
 
-      # Attaching the workspaceElement to the DOM is required to allow the
-      # `toBeVisible()` matchers to work. Anything testing visibility or focus
-      # requires that the workspaceElement is on the DOM. Tests that attach the
-      # workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement)
+    it "allows raw HTML to be returned", ->
+      selectList.viewForItem = (item) ->
+        "<li>#{item}</li>"
 
-      expect(workspaceElement.querySelector('.css-edit-groups')).not.toExist()
+      selectList.setItems(['Bermuda', 'Bahama'])
 
-      # This is an activation event, triggering it causes the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'css-edit-groups:toggle'
-
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        # Now we can test for view visibility
-        cssEditGroupsElement = workspaceElement.querySelector('.css-edit-groups')
-        expect(cssEditGroupsElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'css-edit-groups:toggle'
-        expect(cssEditGroupsElement).not.toBeVisible()
+      expect(list.find('li:eq(0)')).toHaveText 'Bermuda'
+      expect(selectList.getSelectedItem()).toBe 'Bermuda'
