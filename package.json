@@ -24,24 +24,4 @@
     "url": "https://github.com/davidrapson/cssedit-groups/issues"
   },
   "homepage": "https://github.com/davidrapson/cssedit-groups",
-  "_id": "cssedit-groups@0.3.0",
-  "_shasum": "d322bc08e5b1675905500232088ad041a3cc7cbd",
-  "_resolved": "file:../d-115424-22128-7bys4l/package.tgz",
-  "_from": "../d-115424-22128-7bys4l/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": {
-      "atom-space-pen-views": "^2.0.3"
-    },
-    "extensions": {
-      ".coffee": [
-        "lib/cssedit-groups-view.coffee",
-        "lib/cssedit-groups.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
 }
