@@ -15,7 +15,9 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.3"
+  },
   "readme": "# cssedit-groups\n\nAn Atom editor package to jump to CSS `@group` markers like CSSEdit. A port of [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n\nWhenever you are inside a CSS file that contains CSS Edit's group information (like `/* @group Headings */` ) press `cmd-shift-K` and you will be presented with a navigation list to jump around within the CSS file.\n\n## Credits\n\n- [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n",
   "readmeFilename": "README.md",
   "bugs": {
