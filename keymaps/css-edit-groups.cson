@@ -8,4 +8,4 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
-  'shift-cmd-K': 'cssedit-groups:toggle'
+  'cmd-L': 'cssedit-groups:toggle'
