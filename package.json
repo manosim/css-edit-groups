@@ -28,7 +28,9 @@
   "_from": "../d-115424-22128-7bys4l/package.tgz",
   "_atomModuleCache": {
     "version": 1,
-    "dependencies": [],
+    "dependencies": {
+      "atom-space-pen-views": "^2.0.3"
+    },
     "extensions": {
       ".coffee": [
         "lib/cssedit-groups-view.coffee",
