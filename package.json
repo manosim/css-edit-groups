@@ -4,13 +4,40 @@
   "version": "0.3.0",
   "private": true,
   "description": "Jump to CSS @group markers like CSSEdit. A port of https://github.com/Kotrotsos/sublime-cssedit-groups",
-  "activationEvents": [
-    "cssedit-groups:toggle"
-  ],
-  "repository": "https://github.com/davidrapson/cssedit-groups",
+  "activationCommands": {
+    "atom-workspace": ["cssedit-groups:toggle"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidrapson/cssedit-groups"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "readme": "# cssedit-groups\n\nAn Atom editor package to jump to CSS `@group` markers like CSSEdit. A port of [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n\nWhenever you are inside a CSS file that contains CSS Edit's group information (like `/* @group Headings */` ) press `cmd-shift-K` and you will be presented with a navigation list to jump around within the CSS file.\n\n## Credits\n\n- [https://github.com/Kotrotsos/sublime-cssedit-groups](https://github.com/Kotrotsos/sublime-cssedit-groups)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/davidrapson/cssedit-groups/issues"
+  },
+  "homepage": "https://github.com/davidrapson/cssedit-groups",
+  "_id": "cssedit-groups@0.3.0",
+  "_shasum": "d322bc08e5b1675905500232088ad041a3cc7cbd",
+  "_resolved": "file:../d-115424-22128-7bys4l/package.tgz",
+  "_from": "../d-115424-22128-7bys4l/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/cssedit-groups-view.coffee",
+        "lib/cssedit-groups.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
