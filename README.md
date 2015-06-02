@@ -1,4 +1,4 @@
-# CSS Edit Groups - Atom Package [![Build Status](https://travis-ci.org/ekonstantinidis/cssedit-groups.svg?branch=master)](https://travis-ci.org/ekonstantinidis/cssedit-groups)
+# CSS Edit Groups - Atom Package [![Build Status](https://travis-ci.org/ekonstantinidis/css-edit-groups.svg?branch=master)](https://travis-ci.org/ekonstantinidis/css-edit-groups)
 
 An Atom editor package to jump to CSS `@group` markers like CSSEdit.
 
