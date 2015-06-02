@@ -2,7 +2,7 @@
 'atom-workspace': [
   {
     'label': 'Enable cssedit-groups',
-    'command': 'cssedit-groups:toggle'
+    'command': 'css-edit-groups:toggle'
   }
 ]
 'atom-text-editor': [
@@ -13,7 +13,7 @@
       'submenu': [
         {
           'label': 'CSS Edit Groups',
-          'command':'cssedit-groups:toggle'
+          'command':'css-edit-groups:toggle'
         }
       ]
     ]

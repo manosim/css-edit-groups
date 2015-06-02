@@ -13,7 +13,7 @@
     "package"
   ],
   "activationCommands": {
-    "atom-workspace": "cssedit-groups:toggle"
+    "atom-workspace": "css-edit-groups:toggle"
   },
   "author": "Emmanouil Konstantinidis",
   "contributors": [

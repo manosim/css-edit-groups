@@ -9,4 +9,4 @@
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-text-editor':
   'cmd-l': 'unset!'
-  'cmd-l': 'cssedit-groups:toggle'
+  'cmd-l': 'css-edit-groups:toggle'
