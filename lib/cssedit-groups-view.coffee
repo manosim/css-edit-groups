@@ -1,4 +1,4 @@
-{SelectListView,$$} = require 'atom'
+{SelectListView,$$} = require 'atom-space-pen-views'
 
 module.exports =
 
@@ -7,46 +7,50 @@ class CsseditGroupsView extends SelectListView
     initialize: (serializeState) ->
         super
         @addClass('overlay from-top task-list')
-        return atom.workspaceView.command 'cssedit-groups:toggle', =>
-            return @.toggle()
+        atom.commands.add 'atom-workspace', 'cssedit-groups:toggle', => @toggle()
 
+    cancelled: ->
+        @hide()
 
-    attach: ->
-        editor = atom.workspaceView.getActivePaneItem()
+    confirmed: (item) ->
+        editor = atom.workspace.getActivePaneItem()
+        ebuffer = editor.buffer
+        if item != "No Tasks Found"
+            itemIndex = ebuffer.cachedText.indexOf( item )
+            bufferP = ebuffer.positionForCharacterIndex( itemIndex )
+            editor.setCursorBufferPosition( bufferP )
+        @cancel()
+
+    toggle: ->
+        if @panel?.isVisible()
+          @cancel()
+        else
+          @show()
+
+    show: ->
+        editor = atom.workspace.getActiveTextEditor()
         if editor
-            editorBuffer = editor.buffer
-            if editorBuffer
-                matcher = /@group.*(?=\*)/g
-                groups = []
-                if editorBuffer.cachedText and editorBuffer.cachedText.match(matcher)
-                    for match in editorBuffer.cachedText.match(matcher)
-                        groups.push( match )
-                    @setItems(groups)
-                else
-                    @setItems([ 'No groups found' ])
+            editorBuffer = editor.getBuffer()
+            @panel ?= atom.workspace.addModalPanel(item: this)
+            @panel.show()
 
-                atom.workspaceView.append(this)
-                @focusFilterEditor()
+            @storeFocusedElement()
 
+            matcher = /@group.*(?=\*)/g
+            groups = []
+            if editorBuffer.cachedText and editorBuffer.cachedText.match(matcher)
+                for match in editorBuffer.cachedText.match(matcher)
+                    groups.push( match )
+                @setItems(groups)
+            else
+                @setItems([ 'No groups found' ])
+
+            @focusFilterEditor()
 
     viewForItem: (item) ->
         $$ ->
             @li =>
                 @div class: 'group-item', item
 
-
-    confirmed: (item) ->
-        editor = atom.workspaceView.getActivePaneItem()
-        ebuffer = editor.buffer
-        if item != "No Tasks Found"
-            itemIndex = ebuffer.cachedText.indexOf( item )
-            bufferP = ebuffer.positionForCharacterIndex( itemIndex )
-            editor.setCursorBufferPosition( bufferP )
-        this.cancel()
-
-
-    toggle: ->
-        if @.hasParent()
-            @.cancel()
-        else
-            @.attach()
+    hide: ->
+        @panel?.hide()
