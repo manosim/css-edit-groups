@@ -15,6 +15,17 @@
   "activationCommands": {
     "atom-workspace": "cssedit-groups:toggle"
   },
+  "author": "Emmanouil Konstantinidis",
+  "contributors": [
+      {
+          "name": "Emmanouil Konstantinidis",
+          "url": "https://githib.com/ekonstantinidis"
+      },
+      {
+          "name": "David Rapson",
+          "url": "https://github.com/davidrapson"
+      }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ekonstantinidis/css-edit-groups"
