@@ -19,6 +19,7 @@ class CsseditGroupsView extends SelectListView
             itemIndex = ebuffer.cachedText.indexOf( item )
             bufferP = ebuffer.positionForCharacterIndex( itemIndex )
             editor.setCursorBufferPosition( bufferP )
+            editor.setCursorScreenPosition( editor.getCursorBufferPosition() )
         @cancel()
 
     toggle: ->
