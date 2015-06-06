@@ -14,11 +14,12 @@ class CsseditGroupsView extends SelectListView
 
     confirmed: (item) ->
         editor = atom.workspace.getActivePaneItem()
-        ebuffer = editor.buffer
+        ebuffer = editor.getBuffer()
         if item != "No Tasks Found"
             itemIndex = ebuffer.cachedText.indexOf( item )
             bufferP = ebuffer.positionForCharacterIndex( itemIndex )
             editor.setCursorBufferPosition( bufferP )
+            editor.setCursorScreenPosition( editor.getCursorBufferPosition() )
         @cancel()
 
     toggle: ->
