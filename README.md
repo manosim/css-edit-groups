@@ -28,7 +28,7 @@ Whenever you are inside a CSS, LESS or SASS file that contains CSS Edit's group 
 
 ## Snippet Included
 
-It's really simple to create a group. All you have to do is type `group` and press tab. Then the snippet will automatically get created and all you can to do is type the name of the group.
+It's really simple to create a group. All you have to do is type `group` and press `tab`. Then the snippet will automatically get created and all you have to do is type the name of the group. It is automatically typed in the start and the end of the group.
 
 
     /* @group MyCustomGroup */
