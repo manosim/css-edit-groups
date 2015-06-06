@@ -1,6 +1,6 @@
 # CSS Edit Groups - Atom Package [![Build Status](https://travis-ci.org/ekonstantinidis/css-edit-groups.svg?branch=master)](https://travis-ci.org/ekonstantinidis/css-edit-groups)
 
-An Atom editor package to jump to CSS `@group` markers like CSSEdit.
+An Atom editor package to jump to CSS, LESS and SASS `@group` markers like CSSEdit.
 
 Whenever you are inside a CSS, LESS or SASS file that contains CSS Edit's group information (like `/* @group Headings */` ) press `cmd-L` and you will be presented with a navigation list to jump around within the CSS file.
 
