@@ -40,7 +40,7 @@ It's really simple to create a group. All you have to do is type `group` and pre
 
   By default the keybinding for this package is `cmd-L`.
 
-  **Note**: This will override the atom's default `Select Line` keybinding. If you do use this keybinding then read the next secion on how to put it back and set a custom one for css-edit-groups.
+  **Note**: This will override the atom's default `Select Line` keybinding. If you do use this keybinding then read the next section on how to put it back and set a custom one for css-edit-groups.
 
 ## Override Keybindings
 
