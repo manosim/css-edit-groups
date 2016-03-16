@@ -48,8 +48,8 @@ Open your keymap from `Atom -> Open your keymap`.
 The example below resets Atom's default keybinding for `cmd-L` and sets `css-edit-groups` to `shift-cmd-L`.
 
     'atom-text-editor':
-      'cmd-L': 'editor:select-line'
-      'shift-cmd-L': 'css-edit-groups:toggle'
+      'cmd-l': 'editor:select-line'
+      'shift-cmd-l': 'css-edit-groups:toggle'
 
 
 ## Credits
